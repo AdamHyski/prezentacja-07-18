@@ -22,14 +22,15 @@ class: center, middle
 ```
 ]
 ---
+name: Agenda
 .left-column[
 ### O mnie
 ### Agenda
 ]
 .right-column[
 - ### Czym jest Ansible?
-- ### jak go używać //TODO
-- ### jak nie używąć //TODO
+- ### jak go używać [//]: TODO
+- ### jak nie używąć [//]:  TODO
 ]
 ---
 
@@ -39,16 +40,11 @@ class: center, middle
 
 
 ---
-.left-column[
 ### Playbook
-### Inwentarz
-### Inwentarz w YAML
-]
 
-.right-column[
 Najprostszy przykład playbooka:
 `./task1.yml`
-``` yaml
+``` yml
 ---
 - host:       demo
   tasks:
@@ -57,16 +53,19 @@ Najprostszy przykład playbooka:
       name:   demo.hyski.pl
 
 ```
+--
 wymaga on jeszcze pliku `./hosts.ini`
 ``` ini
 demo.hyski.pl
 ```
-
+--
 ale można lepiej `./hosts.yaml`
 ``` yaml
 all:
   hosts:
     demo.hyski.pl
 ```
-]
 ---
+# Komputer powiedział nie
+---
+# Dlaczego?
