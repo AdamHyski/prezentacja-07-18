@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ansible</title>
+    <meta charset="utf-8">
+    <link href="./style.css" rel="stylesheet" type="text/css" media="all">
+
+  </head>
+  <body>
+
+  <script>
+    var xmlhttp, text;
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', './prezentacja.md', false);
+    xmlhttp.send();
+    prezentacja = xmlhttp.responseText;
+    document.write('<textarea id="source" >'+prezentacja+'</textarea>');
+  </script>
+  <script  src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+  <script>
+  var slideshow = remark.create();
+  </script>
+  </body>
+</html>

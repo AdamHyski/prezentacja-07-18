@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+@font-face {
+  font-family: '3270-Medium';
+  font-style: normal;
+  font-weight: 400;
+  src: local('3270-Medium'), url(./3270-Font/3270Medium.woff) format('woff');
+}
+body { font-family: 'Lato'; }
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+.remark-code, .remark-inline-code { font-family: '3270-Medium'; }
+.remark-inline-code {background-color: #F0F0F0;padding: .25em;}
+/* Two-column layout */
+.left-column {
+  color: #777;
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+  .left-column h2:last-of-type, .left-column h3:last-child {
+    color: #000;
+  }
+.right-column {
+  width: 75%;
+  float: right;
+  padding-top: 1em;
+}
