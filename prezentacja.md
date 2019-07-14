@@ -37,19 +37,36 @@ class: center, middle
 
 # Czym jest Ansible?
 
----
 
-# Przykład kodu
-Najprosszy przykład taska:
-`task1.yml`
+---
+.left-column[
+### Playbook
+### Inwentarz
+### Inwentarz w YAML
+]
+
+.right-column[
+Najprostszy przykład playbooka:
+`./task1.yml`
 ``` yaml
 ---
-- host:       Demo
+- host:       demo
   tasks:
   - name:     Change hostname
     hostname:
       name:   demo.hyski.pl
 
 ```
+wymaga on jeszcze pliku `./hosts.ini`
+``` ini
+demo.hyski.pl
+```
 
+ale można lepiej `./hosts.yaml`
+``` yaml
+all:
+  hosts:
+    demo.hyski.pl
+```
+]
 ---
