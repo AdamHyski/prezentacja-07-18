@@ -66,6 +66,37 @@ all:
     demo.hyski.pl
 ```
 ---
-# Komputer powiedział nie
+# Komputer powiedział „nie”
+## Dlaczego?
+--
+
+.center[Nie ma pythona 🐍]
+
 ---
-# Dlaczego?
+# Jak sobie z tym poradziłem?
+wyciąg z jednego z pierwszych playbooków:
+
+``` yaml
+---
+- host:       demo
+  gather_facts:     False
+
+  pre_tasks:
+    - name:         Install python for Ansible
+      raw:          test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      register:     output
+      changed_when: output.stdout != ""
+      tags:         always
+    - setup:        # aka gather_facts
+```
+.red[🛑proszę nie używać ]
+--
+---
+## Z czego to wynika?
+za
+[Python Clock:](https://pythonclock.org/)
+```
+Python 2.7 will not be maintained past 2020.
+Originally, there was no official date.
+Recently, that date has been updated to January 1, 2020
+```

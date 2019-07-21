@@ -29,3 +29,17 @@ h1, h2, h3 {
   float: right;
   padding-top: 1em;
 }
+.red{
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    font-size: 0.72222rem;
+    font-weight: normal;
+    margin-bottom: 1.11111rem;
+    padding: 0.77778rem 1.33333rem 0.77778rem 0.77778rem;
+    position: relative;
+    /* transition: opacity 300ms ease-out; */
+    background-color: #f04124;
+    border-color: #de2d0f;
+    color: #FFFFFF;
+}
