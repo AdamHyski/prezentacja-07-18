@@ -135,3 +135,14 @@ all:
       ansible_python_interpreter:  /usr/bin/python3
 
 ```
+--
+#### Można tu też dodać użytkownika
+`ansible_user: ubuntu`
+???
+Jak poradzić sobie w firmie gdzie mamy loginy imienne?
+Elastyczna konfiguracja.
+--
+
+
+`export ANSIBLE_REMOTE_USER=adam.hyski`
+---
