@@ -78,19 +78,26 @@ wyciąg z jednego z pierwszych playbooków:
 
 ``` yaml
 ---
-- host:       demo
-  gather_facts:     False
+- host:           demo
+  gather_facts:   False
 
   pre_tasks:
-    - name:         Install python for Ansible
-      raw:          test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-      register:     output
-      changed_when: output.stdout != ""
-      tags:         always
-    - setup:        # aka gather_facts
+  - name:         Install python for Ansible
+    raw:          test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+    register:     output
+    changed_when: output.stdout != ""
+    tags:         always
+  - setup:        # aka gather_facts
+
+  tasks:
+  - name:         Change hostname
+    hostname:
+      name:       demo.hyski.pl
+
 ```
 .red[🛑proszę nie używać ]
---
+???
+opowiedzieć co to robi  
 ---
 ## Z czego to wynika?
 za
@@ -99,4 +106,32 @@ za
 Python 2.7 will not be maintained past 2020.
 Originally, there was no official date.
 Recently, that date has been updated to January 1, 2020
+```
+???
+- jak działa Ansible po stronie servera  
+--
+#### Mamy też ładny komunikat jak bymśmy dalej próbowali tego używać
+ [//]: TODO
+![depreciation](http://placekitten.com/600/300)
+---
+## To jak należy to zrobić?
+`./task1.yml`
+``` yml
+---
+- host:       demo
+  tasks:
+  - name:     Change hostname
+    hostname:
+      name:   demo.hyski.pl
+
+```
+
+`./hosts.yaml`
+``` yaml
+all:
+  hosts:
+    demo:
+      ansible_host: demo.hyski.pl
+      ansible_python_interpreter:  /usr/bin/python3
+
 ```
