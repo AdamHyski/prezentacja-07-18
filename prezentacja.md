@@ -135,3 +135,9 @@ all:
       ansible_python_interpreter:  /usr/bin/python3
 
 ```
+---
+
+class: center, middle
+
+# Playbooki?
+---
