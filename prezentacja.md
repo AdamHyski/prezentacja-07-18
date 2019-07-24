@@ -172,6 +172,19 @@ class: center, middle
 - co jeśli któryś się wysypie? a się wysypie.
 ---
 ## Gdzie to umieszczać
+```
+.
+├── ansible.cfg
+├── group_vars
+├── host_vars
+├── playbooks
+│   ├── task1.yml
+│   └── task2.yml
+├── roles
+└── vault
+
+```
+---
 ## Pętle
 ## Pliki
 ## Szablony
