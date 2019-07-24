@@ -112,7 +112,7 @@ Recently, that date has been updated to January 1, 2020
 --
 #### Mamy też ładny komunikat jak bymśmy dalej próbowali tego używać
  [//]: TODO
-![depreciation](http://placekitten.com/600/300)
+![deprecation](./img/deprecation.png)
 ---
 ## To jak należy to zrobić?
 `./task1.yml`
