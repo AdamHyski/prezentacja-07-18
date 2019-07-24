@@ -150,7 +150,7 @@ Elastyczna konfiguracja.
 
 class: center, middle
 
-# Playbooki?
+# Playbooki
 ---
 ## Jak wyglądają
 `./task2.yml`
