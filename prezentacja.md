@@ -180,21 +180,20 @@ class: center, middle
 ???
 - czemu nie polecam package
 - jak to będzie wykonywane
-- co jeśli któryś się wysypie? a się wysypie.
+- co jeśli któryś się wysypie? a się wysypie
 ---
 ## Gdzie to umieszczać
 ``` tree
 .
-├── ./ansible.cfg
-├── ./hosts.yml
-├── ./group_vars
-├── ./host_vars
-├── ./playbooks
-│   ├── ./playbooks/task1.yml
+├── ./ansible.cfg                // konfiguracja
+├── ./hosts.yml                  // Host inventories
+├── ./group_vars                 // Group Vars (dir)
+├── ./host_vars                  // Host host_vars (dir)
+├── ./playbooks                  // Playbook (dir)
+│   ├── ./playbooks/task1.yml   
 │   └── ./playbooks/task2.yml
-├── ./roles
-└── ./vault
-
+├── ./roles                      // Rules (dir)
+└── ./vault                      // Ansible vault
 
 
 ```
@@ -206,3 +205,55 @@ class: center, middle
 ### w host.yaml
 ### host_vars
 ### group_vars
+---
+
+class: center, middle
+
+# Role
+---
+## Handlers
+mamy taką rolę:
+``` ansible
+---
+# file: roles/common/tasks/main.yml
+
+- name: be sure ntp is installed
+  yum:
+    name: ntp
+    state: present
+  tags: ntp
+
+- name: be sure ntp is configured
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+  notify:                     # <-- pojawia się coś nowego
+    - restart ntpd
+  tags: ntp
+
+- name: be sure ntpd is running and enabled
+  service:
+    name: ntpd
+    state: started
+    enabled: yes
+  tags: ntp
+```
+???
+Proszę zwrócić uwagę na
+notify:
+    - restart ntpd
+---
+## Handlers cd.
+plik z handlerem
+``` ansible
+---
+# file: roles/common/handlers/main.yml
+- name: restart ntpd
+  service:
+    name: ntpd
+    state: restarted
+```
+???
+- kolejność działania
+- kolejność działania handlerów
+-
