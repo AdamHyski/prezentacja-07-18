@@ -172,16 +172,19 @@ class: center, middle
 - co jeśli któryś się wysypie? a się wysypie.
 ---
 ## Gdzie to umieszczać
-```
+``` tree
 .
-├── ansible.cfg
-├── group_vars
-├── host_vars
-├── playbooks
-│   ├── task1.yml
-│   └── task2.yml
-├── roles
-└── vault
+├── ./ansible.cfg
+├── ./hosts.yml
+├── ./group_vars
+├── ./host_vars
+├── ./playbooks
+│   ├── ./playbooks/task1.yml
+│   └── ./playbooks/task2.yml
+├── ./roles
+└── ./vault
+
+
 
 ```
 ---
