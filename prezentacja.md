@@ -141,3 +141,41 @@ class: center, middle
 
 # Playbooki?
 ---
+## Jak wyglądają
+`./task2.yml`
+``` yml
+---
+- host:       demo
+  tasks:
+  - name:     Change hostname
+    hostname:
+      name:   demo.hyski.pl
+  - name:     Install htop
+    package:
+      name:   htop
+      state:  present
+
+```
+--
+### alternetywnie
+``` yml
+- name:                Innstall htop
+  apt:
+    update_cache:      yes
+    cache_valid_time:  3600
+    name:              htop
+    state:             latest
+```
+???
+- czemu nie polecam package
+- jak to będzie wykonywane
+- co jeśli któryś się wysypie? a się wysypie.
+---
+## Gdzie to umieszczać
+## Pętle
+## Pliki
+## Szablony
+## Zmienne w playbookach
+### w host.yaml
+### host_vars
+### group_vars
