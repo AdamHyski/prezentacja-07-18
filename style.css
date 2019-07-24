@@ -29,6 +29,10 @@ h1, h2, h3 {
   float: right;
   padding-top: 1em;
 }
+img {
+  max-width:100%;
+  max-height:100%;
+}
 .red{
     border-style: solid;
     border-width: 1px;

@@ -112,7 +112,7 @@ Recently, that date has been updated to January 1, 2020
 --
 #### Mamy też ładny komunikat jak bymśmy dalej próbowali tego używać
  [//]: TODO
-![depreciation](http://placekitten.com/600/300)
+![deprecation](./img/deprecation.png)
 ---
 ## To jak należy to zrobić?
 `./task1.yml`
@@ -135,6 +135,7 @@ all:
       ansible_python_interpreter:  /usr/bin/python3
 
 ```
+
 --
 #### Można tu też dodać użytkownika
 `ansible_user: ubuntu`
@@ -146,3 +147,62 @@ Elastyczna konfiguracja.
 
 `export ANSIBLE_REMOTE_USER=adam.hyski`
 ---
+
+class: center, middle
+
+# Playbooki?
+---
+## Jak wyglądają
+`./task2.yml`
+``` yml
+---
+- host:       demo
+  tasks:
+  - name:     Change hostname
+    hostname:
+      name:   demo.hyski.pl
+  - name:     Install htop
+    package:
+      name:   htop
+      state:  present
+
+```
+--
+### alternetywnie
+``` yml
+- name:                Innstall htop
+  apt:
+    update_cache:      yes
+    cache_valid_time:  3600
+    name:              htop
+    state:             latest
+```
+???
+- czemu nie polecam package
+- jak to będzie wykonywane
+- co jeśli któryś się wysypie? a się wysypie.
+---
+## Gdzie to umieszczać
+``` tree
+.
+├── ./ansible.cfg
+├── ./hosts.yml
+├── ./group_vars
+├── ./host_vars
+├── ./playbooks
+│   ├── ./playbooks/task1.yml
+│   └── ./playbooks/task2.yml
+├── ./roles
+└── ./vault
+
+
+
+```
+---
+## Pętle
+## Pliki
+## Szablony
+## Zmienne w playbookach
+### w host.yaml
+### host_vars
+### group_vars
