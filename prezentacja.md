@@ -54,7 +54,7 @@ Najprostszy przykład playbooka:
 
 ```
 ???
-czym są taski a czy playbooki 
+czym są taski a czy playbooki
 --
 wymaga on jeszcze pliku `./hosts.ini`
 ``` ini
@@ -184,24 +184,75 @@ class: center, middle
 - jak to będzie wykonywane
 - co jeśli któryś się wysypie? a się wysypie
 ---
-## Gdzie to umieszczać
-``` tree
+## Struktura plików
+### Za Ansible Docs Best Practices
+``` ls
+production        # inventory file for production servers
+staging           # inventory file for staging environment
+
+group_vars/
+   group1.yml     # here we assign variables to particular groups
+   group2.yml
+host_vars/
+   hostname1.yml  # here we assign variables to particular systems
+   hostname2.yml
+
+library/          # if any custom modules, put them here (optional)
+module_utils/     # if any custom module_utils to support modules, put them here (optional)
+filter_plugins/   # if any custom filter plugins, put them here (optional)
+
+site.yml          # master playbook
+webservers.yml    # playbook for webserver tier
+dbservers.yml     # playbook for dbserver tier
+roles             # (...)
+
+```
+---
+## Struktura plików
+### Wypracowany kompromis
+``` ls
 .
-├── ./ansible.cfg                // konfiguracja
-├── ./hosts.yml                  // Host inventories
-├── ./group_vars                 // Group Vars (dir)
-├── ./host_vars                  // Host host_vars (dir)
-├── ./playbooks                  // Playbook (dir)
-│   ├── ./playbooks/task1.yml   
-│   └── ./playbooks/task2.yml
-├── ./roles                      // Rules (dir)
-└── ./vault                      // Ansible vault
+├── ansible.cfg                // konfiguracja
+├── hosts.yml                  // Host inventories
+├── group_vars                 // Group Vars (dir)
+├── host_vars                  // Host host_vars (dir)
+├── playbooks                  // Playbook (dir)
+│   ├── task1.yml   
+│   └── task2.yml
+├── roles                      // Rules (dir)
+└── vault                      // Ansible vault
 
 
 ```
 ---
 ## Pętle
+``` yaml
+- name: remove the nginx and php-fpm package
+  package:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - nginx
+    - php7.0-fpm
+    - percona-server-server-5.6
+```
+--
+## można bez pętli
+``` yaml
+- name: remove the nginx and php-fpm package
+  apt:
+    name:
+      - nginx
+      - php7.0-fpm
+      - percona-server-server-5.6
+    state: absent
+```
+???
+Jak już mówiłem apt jest bardziej elastyczne
+---
+
 ## Pliki
+
 ## Szablony
 ## Zmienne w playbookach
 ### w host.yaml
