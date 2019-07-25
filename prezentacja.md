@@ -25,7 +25,7 @@ class: center, middle
 name: Agenda
 .left-column[
 ### O mnie
-### Agenda
+### Nomenklatura
 ]
 .right-column[
 - ### Czym jest Ansible?
@@ -53,6 +53,8 @@ Najprostszy przykład playbooka:
       name:   demo.hyski.pl
 
 ```
+???
+czym są taski a czy playbooki 
 --
 wymaga on jeszcze pliku `./hosts.ini`
 ``` ini
