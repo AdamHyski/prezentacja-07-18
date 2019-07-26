@@ -314,6 +314,34 @@ Jak już mówiłem apt jest bardziej elastyczne
 ---
 ## ( * ) Visudo i /etc/sudoers
 
+``` shell
+# file: /etc/sudoers
+(...)
+# See sudoers(5) for more information on "#include" directives:
+
+#includedir /etc/sudoers.d
+```
+``` bash
+# This will cause sudo to read and parse any files in the /etc/sudoers.d
+# directory that do not end in '~' or contain a '.' character.
+```
+--
+``` yaml
+- name:           make sudo
+  template:       
+    src:          root.j2
+    dest:         "/etc/sudoers.d/{{ item | regex_replace('\.', '_') }}"
+    mode:         0440
+    owner:        root
+    group:        root
+  with_items:     "{{ users.sudoers }}"
+```
+``` j2
+# {{ ansible_managed }}
+# file: root.j2
+{{item}} ALL=(ALL) NOPASSWD: ALL
+
+```
 ---
 ## Pliki: szablony
 ## Zmienne w playbookach
