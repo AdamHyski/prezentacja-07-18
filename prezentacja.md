@@ -25,17 +25,6 @@ Gdzie będzie prezentacja?
 
 ]
 ---
-name: Agenda
-.left-column[
-### O mnie
-### Nomenklatura
-]
-.right-column[
-- ### Czym jest Ansible?
-- ### jak go używać [//]: TODO
-- ### jak nie używąć [//]:  TODO
-]
----
 
 class: center, middle
 
