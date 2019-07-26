@@ -428,6 +428,16 @@ all:
 is_docker: "true"
 
 ```
+``` yaml
+---
+- host:         all
+  tasks:
+  - name:       Install pip packages
+    pip:
+      name:     docker-compose
+      state:    present
+    when:       is_docker     # proszę tego przykładu tak nie używać
+```
 ---
 ## vault
 ``` shell
