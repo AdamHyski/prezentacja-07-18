@@ -1,5 +1,5 @@
 ---
-- host:                 demo
+- hosts:       demo
   tasks:
   - htpasswd:
       path:     /etc/passwdfile

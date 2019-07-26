@@ -49,7 +49,7 @@ Najprostszy przykład playbooka:
 ``` yml
 ---
 # playbooks/task1.yml
-- host:       demo
+- hosts:       demo
   tasks:
   - name:     Change hostname
     hostname:
@@ -90,7 +90,7 @@ wyciąg z jednego z pierwszych playbooków:
 
 ``` yaml
 ---
-- host:           demo
+- hosts:           demo
   gather_facts:   False
 
   pre_tasks:
@@ -130,7 +130,7 @@ Recently, that date has been updated to January 1, 2020
 ``` yml
 ---
 # file: playbooks/task1.yml
-- host:       demo
+- hosts:       demo
   tasks:
   - name:     Change hostname
     hostname:
@@ -174,7 +174,7 @@ class: center, middle
 ``` yml
 ---
 # file: playbooks/task2.yml
-- host:       demo
+- hosts:       demo
   tasks:
   - name:     Change hostname
     hostname:
@@ -393,7 +393,7 @@ proto tcp dport ( {{ other.port }} ) saddr ({{ other.addr }}) ACCEPT;
 `./task3.yml`
 ``` yml
 ---
-- host:       demo
+- hosts:       demo
   vars:       demo.hyski.pl
     hostname:
   tasks:
@@ -446,7 +446,7 @@ is_docker: "true"
 ```
 ``` yaml
 ---
-- host:         all
+- hosts:         all
   tasks:
   - name:       Install pip packages
     pip:
