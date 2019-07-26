@@ -391,13 +391,25 @@ proto tcp dport ( {{ other.port }} ) saddr ({{ other.addr }}) ACCEPT;
 ---
 ## vault
 ``` shell
-openssl rand -base64 18 | sed 's/\//_/'
+$ openssl rand -base64 18 | sed 's/\//_/' >  ~/.ansible_valt
 ```
 ``` shell
-ansible-vault create --vault-id ~/.ansible_valt ./vault/moe.yml
+$ ansible-vault create --vault-id ~/.ansible_valt ./vault/demo.yml
 ```
 ```  shell
-ansible-vault edit --vault-id ~/.ansible_valt ./vault/moe.yml
+$ ansible-vault edit --vault-id ~/.ansible_valt ./vault/demo.yml
+```
+--
+#### aliasy
+``` bash
+alias ave='ansible-vault edit --vault-id ~/.ansible_valt'
+alias avc='ansible-vault create --vault-id ~/.ansible_valt'
+alias av='ansible-vault --vault-id ~/.ansible_valt'
+```
+#### gui?
+``` bash
+$ EDITOR='kate' ansible-vault create --vault-id ~/.ansible_valt ./vault/demo.yml
+$ EDITOR='geany' ave ./vault/demo.yml     
 ```
 ---
 ## Tagi
