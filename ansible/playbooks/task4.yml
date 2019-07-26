@@ -1,0 +1,10 @@
+---
+- host:                 demo
+  tasks:
+  - htpasswd:
+      path:     /etc/passwdfile
+      name:     "{{auth.user}}"
+      password: "{{auth.user}}"
+      owner:    root
+      group:    www-data
+      mode:     0640

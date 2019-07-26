@@ -481,6 +481,18 @@ $ EDITOR='geany' ave ./vault/demo.yml
 ## Vault używanie
 TODO
 https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04
+``` yaml
+# file: playbooks/task4.yml
+# Add a user to a password file and ensure permissions are set
+- htpasswd:
+    path:     /etc/passwdfile
+    name:     "{{auth.user}}"
+    password: "{{auth.user}}"
+    owner:    root
+    group:    www-data
+    mode:     0640
+```
+
 ---
 ## Tagi
 ``` yaml
