@@ -251,13 +251,46 @@ roles             # (...)
 Jak już mówiłem apt jest bardziej elastyczne
 ---
 
-## Pliki
+## Pliki: file
+``` yaml
+- name:      Change file ownership, group and permissions
+  file:
+    path:    /etc/foo.conf
+    owner:   foo
+    group:   foo
+    mode:    '0644'
+```
+--
+``` yaml
+- name:      Workaround h.264 Opera problem
+  file:
+     path:   "/usr/lib/x86_64-linux-gnu/opera/libffmpeg.so"
+     src:    "/usr/lib/chromium-browser/libffmpeg.so"
+     state:  link
+     force:  true
+  tags:
+     - h264
+```
+--
+```yaml
+- name:      Recursively change ownership of a directory
+  file:
+    path:    /etc/foo
+    state:   directory
+    recurse: yes
+    owner:   foo
+    group:   foo
+```
+??? tworzymy pliki zmieniamy uprawnienia
+---
+## Pliki: copy
 
-## Szablony
+## Pliki: szablony
 ## Zmienne w playbookach
 ### w host.yaml
 ### host_vars
 ### group_vars
+## Tagi
 ---
 
 class: center, middle
