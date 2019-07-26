@@ -412,12 +412,20 @@ $ EDITOR='kate' ansible-vault create --vault-id ~/.ansible_valt ./vault/demo.yml
 $ EDITOR='geany' ave ./vault/demo.yml     
 ```
 ---
+## vault używanie
+TODO
+https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04
+---
 ## Tagi
 ---
 
 class: center, middle
 
 # Role
+---
+#jak wyglądają pliki
+
+
 ---
 ## Handlers
 mamy taką rolę:
@@ -464,4 +472,18 @@ plik z handlerem
 ???
 - kolejność działania
 - kolejność działania handlerów
--
+---
+
+class: center, middle
+
+# Pytania?
+---
+
+class: center, middle
+
+# Gdzie prezentacja
+---
+
+class: center, middle
+
+# Dziękuję
