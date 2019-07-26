@@ -1,0 +1,20 @@
+---
+- hosts:                demo
+  tasks:
+  - name:               Install pip
+    apt:
+      name:             python3-pip
+      update_cache:     yes
+      cache_valid_time: 3600
+      state:            present
+  - name:               Install passlib
+    pip:
+      name:             passlib
+      state:            present
+  - htpasswd:
+      path:             /etc/passwdfile
+      name:             "{{auth.user}}"
+      password:         "{{auth.user}}"
+      owner:            root
+      group:            www-data
+      mode:             0640

@@ -511,7 +511,59 @@ $ANSIBLE_VAULT;1.1;AES256
 3661636536306538613738636663306266613731623331373630
 
 ```
+---
+class: center, middle
+![computer says no](img/computer-says-no.jpg)
+---
+## …i to nie raz a dwa razy
 
+``` error
+MSG:
+
+This module requires the passlib Python library
+
+```
+--
+``` shell
+$ pip install -U passlib
+```
+--
+``` yaml
+- name:     Install passlib
+  pip:
+    name:   passlib
+    state:  present
+```
+--
+``` error
+MSG:
+
+Unable to find any of pip3 to use.  pip needs to be installed.
+```
+---
+## Działająca wersja
+``` yaml
+---
+- hosts:                demo
+  tasks:
+  - name:               Install pip
+    apt:
+      name:             python3-pip
+      update_cache:     yes
+      cache_valid_time: 3600
+      state:            present
+  - name:               Install passlib
+    pip:
+      name:             passlib
+      state:            present
+  - htpasswd:
+      path:             /etc/passwdfile
+      name:             "{{auth.user}}"
+      password:         "{{auth.user}}"
+      owner:            root
+      group:            www-data
+      mode:             0640
+```
 ---
 ## Tagi
 ``` yaml
