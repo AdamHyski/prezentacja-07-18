@@ -21,7 +21,9 @@ class: center, middle
     GitHub:   github.com/AdamHyski
 
 ```
-Gdzie będzie prezentacja?
+Gdzie będzie prezentacja?:
+- http://bit.ly/ah-ansible
+- https://adamhyski.github.io/prezentacja-ansible/
 
 ]
 ---
@@ -678,7 +680,10 @@ class: center, middle
 
 class: center, middle
 
-# Gdzie prezentacja
+# Gdzie prezentacja?
+http://bit.ly/ah-ansible
+
+https://adamhyski.github.io/prezentacja-ansible/
 ---
 
 class: center, middle
