@@ -385,9 +385,49 @@ proto tcp dport ( {{ other.port }} ) saddr ({{ other.addr }}) ACCEPT;
     hostname:
       name:   "{{hostname}}"
 ```
-### w host.yaml
+???
+- czemu tego nie używać ?
+---
 ### host_vars
+``` yaml
+# file: host_vars/demo.yaml
+users:
+  sudoers:
+    - adam.hyski
+    - anna.nowak
+    - jan.kowalski
+```
+--
+``` yaml
+- name:           make sudo
+  template:       
+    src:          root.j2
+    dest:         "/etc/sudoers.d/{{ item | regex_replace('\.', '_') }}"
+    mode:         0440
+    owner:        root
+    group:        root
+  with_items:     "{{ users.sudoers }}"
+```
+---
 ### group_vars
+``` yaml
+---
+# file: hosts.yaml
+all:
+  hosts:
+    demo:
+  children:
+    webserwers:
+    docker:
+      hosts:
+        demo:
+```
+``` yaml
+---
+# file: group_vars/docke.yaml
+is_docker: "true"
+
+```
 ---
 ## vault
 ``` shell
