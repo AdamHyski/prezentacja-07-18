@@ -284,7 +284,37 @@ Jak już mówiłem apt jest bardziej elastyczne
 ??? tworzymy pliki zmieniamy uprawnienia
 ---
 ## Pliki: copy
+``` yaml
+- name:         Copy a new "ntp.conf and backing up the original
+  copy:
+    src:        /mine/ntp.conf
+    dest:       /etc/ntp.conf
+    owner:      root
+    group:      root
+    mode:       '0644'
+    backup:     yes
+```
+--
+``` yaml
+- name:         Copy a new "sudoers" file, after passing validation
+  copy:
+    src:        /mine/sudoers
+    dest:       /etc/sudoers             # (*) Przypis na następnym slajdzie
+    validate:   /usr/sbin/visudo -cf %s
+```
+--
+``` yaml
+- name:         Copy a "sudoers" file on the remote machine for editing
+  copy:
+    src:        /etc/sudoers
+    dest:       /etc/sudoers.edit        # (*) Przypis na następnym slajdzie
+    remote_src: yes
+    validate:   /usr/sbin/visudo -cf %s
+```
+---
+## ( * ) Visudo i /etc/sudoers
 
+---
 ## Pliki: szablony
 ## Zmienne w playbookach
 ### w host.yaml
