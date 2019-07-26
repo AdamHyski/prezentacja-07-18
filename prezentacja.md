@@ -374,9 +374,32 @@ proto tcp dport ( {{ other.port }} ) saddr ({{ other.addr }}) ACCEPT;
 
 ---
 ## Zmienne w playbookach
+`./task3.yml`
+``` yml
+---
+- host:       demo
+  vars:       demo.hyski.pl
+    hostname:
+  tasks:
+  - name:     Change hostname
+    hostname:
+      name:   "{{hostname}}"
+```
 ### w host.yaml
 ### host_vars
 ### group_vars
+---
+## vault
+``` shell
+openssl rand -base64 18 | sed 's/\//_/'
+```
+``` shell
+ansible-vault create --vault-id ~/.ansible_valt ./vault/moe.yml
+```
+```  shell
+ansible-vault edit --vault-id ~/.ansible_valt ./vault/moe.yml
+```
+---
 ## Tagi
 ---
 
