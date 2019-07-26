@@ -231,12 +231,13 @@ roles             # (...)
 ├── ansible.cfg                // konfiguracja
 ├── hosts.yml                  // Host inventories
 ├── group_vars                 // Group Vars (dir)
+│   ├── vault                  // Secret group_vars (dir)
 ├── host_vars                  // Host host_vars (dir)
+│   ├── vault                  // Secret host_vars (dir)
 ├── playbooks                  // Playbook (dir)
 │   ├── task1.yml   
 │   └── task2.yml
-├── roles                      // Rules (dir)
-└── vault                      // Ansible vault
+└──  roles                      // Rules (dir)
 
 
 ```
@@ -468,6 +469,7 @@ $ ansible-vault edit --vault-id ~/.ansible_valt ./vault/demo.yml
 --
 #### aliasy
 ``` bash
+export ANSIBLE_VAULT_PASSWORD_FILE= ~/.ansible_valt
 alias ave='ansible-vault edit --vault-id ~/.ansible_valt'
 alias avc='ansible-vault create --vault-id ~/.ansible_valt'
 alias av='ansible-vault --vault-id ~/.ansible_valt'
@@ -479,8 +481,7 @@ $ EDITOR='geany' ave ./vault/demo.yml
 ```
 ---
 ## Vault używanie
-TODO
-https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04
+
 ``` yaml
 # file: playbooks/task4.yml
 # Add a user to a password file and ensure permissions are set
@@ -530,13 +531,13 @@ Gwoli przypomnienia
 ├── ansible.cfg                // konfiguracja
 ├── hosts.yml                  // Host inventories
 ├── group_vars                 // Group Vars (dir)
+│   ├── vault                  // Secret group_vars (dir)
 ├── host_vars                  // Host host_vars (dir)
+│   ├── vault                  // Secret host_vars (dir)
 ├── playbooks                  // Playbook (dir)
 │   ├── task1.yml   
 │   └── task2.yml
-├── roles                      // Rules (dir)
-└── vault                      // Ansible vault
-
+└──  roles                      // Rules (dir)
 
 ```
 ---
