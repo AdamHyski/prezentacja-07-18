@@ -344,6 +344,35 @@ Jak już mówiłem apt jest bardziej elastyczne
 ```
 ---
 ## Pliki: szablony
+### czyli parę słów o Jinja2
+
+``` yaml
+vars:
+  firewall:
+    other_in:
+      - { name: 'MySQL for x', port: 3306, addr: 100.200.300.400 }
+      - { name: 'SSH for y',   port: 22,   addr: 100.200.300.400 }
+```
+``` j2
+# {{ ansible_managed }}
+
+{% for other in firewall.other_in %}
+# {{ other.name }}
+proto tcp dport ( {{ other.port }} ) saddr ({{ other.addr }}) ACCEPT;
+{% endfor %}
+
+```
+--
+
+``` j2
+# {{ ansible_managed }}
+# file: /etc/proftpd/ftpd.passwd
+{% for user in ftp.users %}
+{{user.name}}:{{ user.pass |password_hash('sha512') }}:{{user.uid}}:{{user.gid}}::{{user.home}}:/bin/false
+{% endfor %}
+```
+
+---
 ## Zmienne w playbookach
 ### w host.yaml
 ### host_vars
