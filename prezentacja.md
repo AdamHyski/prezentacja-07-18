@@ -18,8 +18,11 @@ class: center, middle
     Twitter:  @AdamHyski
     Page:     https://hyski.pl
     Mail:     adam@hyski.pl
+    GitHub:   github.com/AdamHyski
 
 ```
+Gdzie będzie prezentacja?
+
 ]
 ---
 name: Agenda
@@ -462,11 +465,33 @@ $ EDITOR='kate' ansible-vault create --vault-id ~/.ansible_valt ./vault/demo.yml
 $ EDITOR='geany' ave ./vault/demo.yml     
 ```
 ---
-## vault używanie
+## Vault używanie
 TODO
 https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data-on-ubuntu-16-04
 ---
 ## Tagi
+``` yaml
+- name:       Install pip packages
+  pip:
+    name:     docker-compose
+    state:    present
+  tags:
+    - docker
+    - install
+- apt:
+    name:     htop
+    state:    present
+  tags:
+    - tools
+    - install
+```
+Użycie:
+
+``` shell
+$ ansible-playbook install.yml --tag tools
+$ ansible-playbook install.yml --tag install
+$ ansible-playbook install.yml --tag docker
+```
 ---
 
 class: center, middle
