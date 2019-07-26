@@ -46,9 +46,9 @@ class: center, middle
 ### Playbook
 
 Najprostszy przykład playbooka:
-`./task1.yml`
 ``` yml
 ---
+# playbooks/task1.yml
 - host:       demo
   tasks:
   - name:     Change hostname
@@ -59,17 +59,24 @@ Najprostszy przykład playbooka:
 ???
 czym są taski a czy playbooki
 --
-wymaga on jeszcze pliku `./hosts.ini`
-``` ini
-demo.hyski.pl
-```
---
-ale można lepiej `./hosts.yaml`
+
+wymaga on jeszcze  `./hosts.yaml`
 ``` yaml
+# file: ./hosts.yaml
 all:
   hosts:
     demo.hyski.pl
 ```
+--
+
+> uruchamiamy:
+
+``` shell
+$ ansible-playbook playbooks/task1.yml
+```
+---
+class: center, middle
+![computer says no](./img/qwertee_computer-says-no.png)
 ---
 # Komputer powiedział „nie”
 ## Dlaczego?
@@ -120,9 +127,9 @@ Recently, that date has been updated to January 1, 2020
 ![deprecation](./img/deprecation.png)
 ---
 ## To jak należy to zrobić?
-`./task1.yml`
 ``` yml
 ---
+# file: playbooks/task1.yml
 - host:       demo
   tasks:
   - name:     Change hostname
@@ -131,12 +138,13 @@ Recently, that date has been updated to January 1, 2020
 
 ```
 
-`./hosts.yaml`
 ``` yaml
+---
+# file: hosts.yaml
 all:
   hosts:
     demo:
-      ansible_host: demo.hyski.pl
+      ansible_host:                demo.hyski.pl
       ansible_python_interpreter:  /usr/bin/python3
 
 ```
@@ -157,10 +165,15 @@ class: center, middle
 
 # Playbooki
 ---
+
+class: center, middle
+
+![deprecation](./img/The_playbook.png)
+---
 ## Jak wyglądają
-`./task2.yml`
 ``` yml
 ---
+# file: playbooks/task2.yml
 - host:       demo
   tasks:
   - name:     Change hostname
@@ -173,7 +186,7 @@ class: center, middle
 
 ```
 --
-### alternetywnie
+### Alternetywnie
 ``` yml
 - name:                Innstall htop
   apt:
