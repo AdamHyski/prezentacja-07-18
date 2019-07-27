@@ -160,7 +160,7 @@ class: center, middle
 
 ![deprecation](./img/The_playbook.png)
 ---
-## Jak wyglądają
+## Jak wyglądają?
 ``` yml
 ---
 # file: playbooks/task2.yml
@@ -446,8 +446,7 @@ is_docker: "true"
     when:       is_docker     # proszę tego przykładu tak nie używać
 ```
 ---
-## vault
-``` shell
+## Vault ``` shell
 $ openssl rand -base64 18 | sed 's/\//_/' >  ~/.ansible_valt
 ```
 ``` shell
@@ -464,7 +463,8 @@ alias ave='ansible-vault edit --vault-id ~/.ansible_valt'
 alias avc='ansible-vault create --vault-id ~/.ansible_valt'
 alias av='ansible-vault --vault-id ~/.ansible_valt'
 ```
-#### gui?
+---
+#### Ktoś lubi gui?
 ``` bash
 $ EDITOR='kate' ansible-vault create --vault-id ~/.ansible_valt ./vault/demo.yml
 $ EDITOR='geany' ave ./vault/demo.yml     
