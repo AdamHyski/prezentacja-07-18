@@ -113,8 +113,7 @@ Recently, that date has been updated to January 1, 2020
 ???
 - jak działa Ansible po stronie servera  
 --
-#### Mamy też ładny komunikat jak bymśmy dalej próbowali tego używać
- [//]: TODO
+#### Mamy też ładny komunikat jak byśmy dalej próbowali tego używać
 ![deprecation](./img/deprecation.png)
 ---
 ## To jak należy to zrobić?
@@ -386,8 +385,8 @@ proto tcp dport ( {{ other.port }} ) saddr ({{ other.addr }}) ACCEPT;
 ``` yml
 ---
 - hosts:       demo
-  vars:       demo.hyski.pl
-    hostname:
+  vars:       
+    hostname: demo.hyski.pl
   tasks:
   - name:     Change hostname
     hostname:
