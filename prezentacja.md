@@ -446,7 +446,8 @@ is_docker: "true"
     when:       is_docker     # proszę tego przykładu tak nie używać
 ```
 ---
-## Vault ``` shell
+## Vault
+``` shell
 $ openssl rand -base64 18 | sed 's/\//_/' >  ~/.ansible_valt
 ```
 ``` shell
@@ -456,14 +457,14 @@ $ ansible-vault create --vault-id ~/.ansible_valt ./vault/demo.yml
 $ ansible-vault edit --vault-id ~/.ansible_valt ./vault/demo.yml
 ```
 --
-#### aliasy
+#### Aliasy
 ``` bash
 export ANSIBLE_VAULT_PASSWORD_FILE= ~/.ansible_valt
 alias ave='ansible-vault edit --vault-id ~/.ansible_valt'
 alias avc='ansible-vault create --vault-id ~/.ansible_valt'
 alias av='ansible-vault --vault-id ~/.ansible_valt'
 ```
----
+--
 #### Ktoś lubi gui?
 ``` bash
 $ EDITOR='kate' ansible-vault create --vault-id ~/.ansible_valt ./vault/demo.yml
